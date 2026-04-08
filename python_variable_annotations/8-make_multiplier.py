@@ -6,9 +6,8 @@ from typing import Callable
 
 
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
-    def multiply(n: float) -> float:
-        """
-    Return a tuple with k and the square of v
-        """
+    """Return a tuple with k and the square of v"""
+    def multiply_float(n: float):
         return n * multiplier
-    return multiply
+
+    return multiply_float
