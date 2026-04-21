@@ -52,11 +52,15 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> dict:
         """Deletion-resilient hypermedia pagination"""
+
+        if index is None:
+            index = 0
+
         assert isinstance(index, int) and index >= 0
         assert isinstance(page_size, int) and page_size > 0
 
         data = self.indexed_dataset()
-        dataset_size = max(data.keys()) + 1
+        dataset_size = len(data)
 
         assert index < dataset_size
 
