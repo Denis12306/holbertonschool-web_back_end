@@ -8,27 +8,29 @@ function countStudents(path) {
       .split('\n')
       .filter((line) => line.trim() !== '');
 
-    const students = {};
-    let total = 0;
+    lines.shift();
+
+    const fields = {};
+    let totalStudents = 0;
 
     for (const line of lines) {
-      const parts = line.split(',');
+      const student = line.split(',');
 
-      const field = parts[3];
-      const firstname = parts[0];
+      const firstname = student[0];
+      const field = student[3];
 
-      if (!students[field]) {
-        students[field] = [];
+      if (!fields[field]) {
+        fields[field] = [];
       }
 
-      students[field].push(firstname);
-      total += 1;
+      fields[field].push(firstname);
+      totalStudents += 1;
     }
 
-    console.log(`Number of students: ${total}`);
+    console.log(`Number of students: ${totalStudents}`);
 
-    for (const field in students) {
-      const list = students[field];
+    for (const field in fields) {
+      const list = fields[field];
       console.log(
         `Number of students in ${field}: ${list.length}. List: ${list.join(', ')}`
       );
