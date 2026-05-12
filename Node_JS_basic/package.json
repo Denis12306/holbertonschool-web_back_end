@@ -13,8 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "chai-http": "^4.3.0",
-    "express": "npm:Express@^3.0.1",
-    "Express": "^3.0.1"
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
